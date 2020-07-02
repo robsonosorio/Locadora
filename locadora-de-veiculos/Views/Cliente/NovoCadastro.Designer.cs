@@ -33,11 +33,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.textTelefone = new System.Windows.Forms.TextBox();
+            this.textCPF = new System.Windows.Forms.TextBox();
+            this.textEmail = new System.Windows.Forms.TextBox();
+            this.textNome = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -91,38 +91,6 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Tel. ";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(145, 103);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(237, 23);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(145, 149);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(237, 23);
-            this.textBox2.TabIndex = 6;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(145, 197);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(237, 23);
-            this.textBox3.TabIndex = 7;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(145, 243);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(237, 23);
-            this.textBox4.TabIndex = 8;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(204, 304);
@@ -133,16 +101,48 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // textTelefone
+            // 
+            this.textTelefone.Location = new System.Drawing.Point(145, 243);
+            this.textTelefone.Name = "textTelefone";
+            this.textTelefone.Size = new System.Drawing.Size(237, 23);
+            this.textTelefone.TabIndex = 8;
+            this.textTelefone.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            // 
+            // textCPF
+            // 
+            this.textCPF.Location = new System.Drawing.Point(145, 197);
+            this.textCPF.Name = "textCPF";
+            this.textCPF.Size = new System.Drawing.Size(237, 23);
+            this.textCPF.TabIndex = 7;
+            this.textCPF.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // textEmail
+            // 
+            this.textEmail.Location = new System.Drawing.Point(145, 149);
+            this.textEmail.Name = "textEmail";
+            this.textEmail.Size = new System.Drawing.Size(237, 23);
+            this.textEmail.TabIndex = 6;
+            this.textEmail.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // textNome
+            // 
+            this.textNome.Location = new System.Drawing.Point(145, 103);
+            this.textNome.Name = "textNome";
+            this.textNome.Size = new System.Drawing.Size(237, 23);
+            this.textNome.TabIndex = 5;
+            this.textNome.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // NovoCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 361);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textTelefone);
+            this.Controls.Add(this.textCPF);
+            this.Controls.Add(this.textEmail);
+            this.Controls.Add(this.textNome);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -162,10 +162,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textTelefone;
+        private System.Windows.Forms.TextBox textCPF;
+        private System.Windows.Forms.TextBox textEmail;
+        private System.Windows.Forms.TextBox textNome;
     }
 }

@@ -6,6 +6,7 @@ namespace locadora_de_veiculos.Models
 {
     public class Cliente
     {
+        public int Id { get; set; } 
         public string Nome { get; set; }
         public string Email { get; set; }
         public int CPF { get; set; }
@@ -18,7 +19,8 @@ namespace locadora_de_veiculos.Models
 
         public override string ToString()
         {
-            return "Nome: " + Nome
+            return "ID: " + Id
+                + "  Nome: " + Nome
                 + "  Email: " + Email
                 + "\nCPF: " + CPF
                 + "  Tel.: " + Telefone;
