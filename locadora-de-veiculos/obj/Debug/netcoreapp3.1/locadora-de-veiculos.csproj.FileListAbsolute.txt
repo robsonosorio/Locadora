@@ -53,3 +53,4 @@ C:\GitHub\_ProjetosLeleco\locadora-de-veiculos\locadora-de-veiculos\bin\Debug\ne
 C:\GitHub\_ProjetosLeleco\locadora-de-veiculos\locadora-de-veiculos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\GitHub\_ProjetosLeleco\locadora-de-veiculos\locadora-de-veiculos\obj\Debug\netcoreapp3.1\locadora-de-veiculos.csproj.CoreCompileInputs.cache
 C:\GitHub\_ProjetosLeleco\locadora-de-veiculos\locadora-de-veiculos\obj\Debug\netcoreapp3.1\locadora-de-veiculos.csproj.CopyComplete
+C:\GitHub\_ProjetosLeleco\locadora-de-veiculos\locadora-de-veiculos\obj\Debug\netcoreapp3.1\locadora_de_veiculos.Views.Cliente.TestandoList.resources

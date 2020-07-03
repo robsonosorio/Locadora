@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Data.Sql;
 using System.Drawing;
 using System.Security.Cryptography;
@@ -89,6 +90,11 @@ namespace locadora_de_veiculos.Views.Cliente
             }
         
         
+        }
+
+        private void NovoCadastro_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -2,7 +2,13 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="Views\Cliente\NovoCadastro.cs">
+    <Compile Update="Views\Cliente\Create.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Cliente\Create.Designer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Cliente\TestandoList.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
