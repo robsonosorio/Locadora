@@ -3,7 +3,7 @@ using System.Data;
 
 namespace Locadora.Models
 {
-    class DataBase
+    public class DataBase
     {
         public SqlConnection conexao;
         public DataBase()

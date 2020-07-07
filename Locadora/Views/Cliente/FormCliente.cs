@@ -1,4 +1,5 @@
 ﻿using Locadora.Models;
+using Locadora.Repositorio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,20 +17,14 @@ namespace Locadora
 {
     public partial class FormCliente : Form
     {
-       
+
+
         public FormCliente()
         {
             InitializeComponent();
-           
+
         }
 
-        private void Limpa_TextBox()
-        {
-            nomeTextBox.Text = "";
-            emailTextBox.Text = "";
-            cPFTextBox.Text = "";
-            telefoneTextBox.Text = "";
-        }
         private void ClienteDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             nomeTextBox.Text = clienteDataGridView.CurrentRow.Cells[1].Value.ToString();
@@ -47,68 +42,89 @@ namespace Locadora
 
         public void Atualizar_Click(object sender, EventArgs e)
         {
-            Limpa_TextBox();
-
-            SqlConnection conexao = new SqlConnection("Data Source=DESKTOP-M10J657;Initial Catalog=Locadora;Integrated Security=True");
-            SqlCommand comando = new SqlCommand("SELECT * FROM Cliente", conexao);
+            ClienteRepositorio clienteRepositorio = new ClienteRepositorio();
+            Cliente cliente = new Cliente();
             try
             {
-                SqlDataAdapter adapta = new SqlDataAdapter();
-                DataSet dataSet = new DataSet();
-                adapta.SelectCommand = comando;
-                adapta.Fill(dataSet);
-                clienteDataGridView.DataSource = dataSet;
-                clienteDataGridView.DataMember = dataSet.Tables[0].TableName;
-                conexao.Open();
-                comando.ExecuteNonQuery();
-                conexao.Close();
+                cliente.Atualizar();
+                clienteDataGridView.DataSource = null;
+                clienteDataGridView.DataSource = clienteRepositorio.dataTable;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro " + ex.Message);
+                MessageBox.Show("Ocorre erro" + ex.Message);
             }
         }
 
         private void Salvar_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
-            cliente.Nome = nomeTextBox.Text;
-            cliente.Email = emailTextBox.Text;
-            cliente.CPF = cPFTextBox.Text;
-            cliente.Telefone = telefoneTextBox.Text;
+            try
+            {
+                Cliente cliente = new Cliente();
+                cliente.Nome = nomeTextBox.Text;
+                cliente.Email = emailTextBox.Text;
+                cliente.CPF = cPFTextBox.Text;
+                cliente.Telefone = telefoneTextBox.Text;
 
-            cliente.Salvar(cliente);
+                cliente.Salvar();
 
-            Atualizar_Click(sender, e);
-            Limpa_TextBox();
+                cliente.Atualizar();
+                Limpa_TextBox();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Ocorre erro: " + ex.Message);
+            }
         }
 
         private void Alterar_Click(object sender, EventArgs e)
         {
             Cliente cliente = new Cliente();
-            cliente.Id = int.Parse(clienteDataGridView.SelectedRows[0].Cells[0].Value.ToString());
-            cliente.Nome = nomeTextBox.Text;
-            cliente.Email = emailTextBox.Text;
-            cliente.CPF = cPFTextBox.Text;
-            cliente.Telefone = telefoneTextBox.Text;
+            try
+            {
+                cliente.Id = int.Parse(clienteDataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                cliente.Nome = nomeTextBox.Text;
+                cliente.Email = emailTextBox.Text;
+                cliente.CPF = cPFTextBox.Text;
+                cliente.Telefone = telefoneTextBox.Text;
 
-            cliente.Alterar(cliente);
+                cliente.Alterar();
 
-            Atualizar_Click(sender, e);
-            Limpa_TextBox();
+                cliente.Atualizar();
+
+                Limpa_TextBox();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Ocorre erro: " + ex.Message);
+            }
         }
 
         private void Deletar_Click(object sender, EventArgs e)
         {
             Cliente cliente = new Cliente();
-            cliente.Id = int.Parse(clienteDataGridView.SelectedRows[0].Cells[0].Value.ToString());
+            try
+            {
+                cliente.Id = int.Parse(clienteDataGridView.SelectedRows[0].Cells[0].Value.ToString());
 
-            cliente.Deletar(cliente);
+                cliente.Deletar();
 
-            Atualizar_Click(sender, e);
+                cliente.Atualizar();
 
-            Limpa_TextBox();
+                Limpa_TextBox();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Ocorre erro: " + ex.Message);
+            }
+        }
+
+        private void Limpa_TextBox()
+        {
+            nomeTextBox.Text = "";
+            emailTextBox.Text = "";
+            cPFTextBox.Text = "";
+            telefoneTextBox.Text = "";
         }
     }
 }
-    
