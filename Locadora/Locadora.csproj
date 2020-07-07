@@ -46,10 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormCliente.cs">
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Views\Cliente\FormCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCliente.Designer.cs">
+    <Compile Include="Views\Cliente\FormCliente.Designer.cs">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="LocadoraDataSet.Designer.cs">
@@ -59,7 +60,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormCliente.resx">
+    <EmbeddedResource Include="Views\Cliente\FormCliente.resx">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -94,6 +95,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Locacao\" />
+    <Folder Include="Views\Veiculo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

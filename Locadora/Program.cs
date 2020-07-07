@@ -20,3 +20,9 @@ namespace Locadora
         }
     }
 }
+
+//separar conexao DB
+//Criar minha classe obejto
+//Criar classes carros, e locacao
+// Criar crud para cada um
+// e acabou

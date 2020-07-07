@@ -147,7 +147,6 @@
             this.clienteDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.clienteDataGridView.Size = new System.Drawing.Size(551, 261);
             this.clienteDataGridView.TabIndex = 34;
-            this.clienteDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.clienteDataGridView_CellContentClick);
             // 
             // clienteBindingSource
             // 
@@ -177,7 +176,7 @@
             this.button4.TabIndex = 31;
             this.button4.Text = "Deletar";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.deleta_Click);
+            this.button4.Click += new System.EventHandler(this.Deleta_Click);
             // 
             // button3
             // 
@@ -187,7 +186,7 @@
             this.button3.TabIndex = 30;
             this.button3.Text = "Alterar";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.altera_Click);
+            this.button3.Click += new System.EventHandler(this.Altera_Click);
             // 
             // button2
             // 
@@ -197,7 +196,7 @@
             this.button2.TabIndex = 29;
             this.button2.Text = "Salvar";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.salva_Click);
+            this.button2.Click += new System.EventHandler(this.Salva_Click);
             // 
             // button1
             // 
@@ -207,7 +206,7 @@
             this.button1.TabIndex = 28;
             this.button1.Text = "Atualizar";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.atualiza_Click);
+            this.button1.Click += new System.EventHandler(this.Atualiza_Click);
             // 
             // clienteTableAdapter
             // 
