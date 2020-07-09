@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\DataBase.cs" />
-    <Compile Include="Repositorio\ClienteRepositorio.cs" />
     <Compile Include="Views\Cliente\FormCliente.cs">
       <SubType>Form</SubType>
     </Compile>

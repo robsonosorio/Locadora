@@ -1,5 +1,4 @@
 ﻿using Locadora.Models;
-using Locadora.Repositorio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,8 +16,6 @@ namespace Locadora
 {
     public partial class FormCliente : Form
     {
-
-
         public FormCliente()
         {
             InitializeComponent();
@@ -42,13 +39,9 @@ namespace Locadora
 
         public void Atualizar_Click(object sender, EventArgs e)
         {
-            ClienteRepositorio clienteRepositorio = new ClienteRepositorio();
-            Cliente cliente = new Cliente();
             try
             {
-                cliente.Atualizar();
-                clienteDataGridView.DataSource = null;
-                clienteDataGridView.DataSource = clienteRepositorio.dataTable;
+                this.clienteTableAdapter.Fill(this.locadoraDataSet.Cliente);
             }
             catch (Exception ex)
             {
@@ -66,9 +59,8 @@ namespace Locadora
                 cliente.CPF = cPFTextBox.Text;
                 cliente.Telefone = telefoneTextBox.Text;
 
-                cliente.Salvar();
-
-                cliente.Atualizar();
+                cliente.Salvar(cliente);
+                this.clienteTableAdapter.Fill(this.locadoraDataSet.Cliente);
                 Limpa_TextBox();
             }
             catch (SqlException ex)
@@ -88,9 +80,9 @@ namespace Locadora
                 cliente.CPF = cPFTextBox.Text;
                 cliente.Telefone = telefoneTextBox.Text;
 
-                cliente.Alterar();
+                cliente.Alterar(cliente);
 
-                cliente.Atualizar();
+                this.clienteTableAdapter.Fill(this.locadoraDataSet.Cliente);
 
                 Limpa_TextBox();
             }
@@ -107,9 +99,9 @@ namespace Locadora
             {
                 cliente.Id = int.Parse(clienteDataGridView.SelectedRows[0].Cells[0].Value.ToString());
 
-                cliente.Deletar();
+                cliente.Deletar(cliente);
 
-                cliente.Atualizar();
+                this.clienteTableAdapter.Fill(this.locadoraDataSet.Cliente);
 
                 Limpa_TextBox();
             }

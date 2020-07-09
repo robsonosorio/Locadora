@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Locadora.Repositorio;
+
 
 namespace Locadora.Models
 {
-    public class Cliente
+    public class Cliente : DataBase
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -23,40 +23,49 @@ namespace Locadora.Models
         {
         }
 
-        // teste // criar propriedades e metodos de leitura de dados????
-        
-        public void Atualizar()
+        public void Salvar(Cliente cliente)
         {
-            ClienteRepositorio clienteRepositorio = new ClienteRepositorio();
-
-            string sqlInserir = "SELECT * FROM Cliente";
-            clienteRepositorio.Atualizar(sqlInserir);
-           
-        }
-
-        public void Salvar()
-        {
-            ClienteRepositorio clienteRepositorio = new ClienteRepositorio();
-
             string sqlInserir = "INSERT INTO Cliente(Nome, Email, CPF, Telefone) VALUES (@Nome, @Email, @CPF, @Telefone)";
-            clienteRepositorio.Salvar(sqlInserir);
+          
+            conexao.Open();
+            SqlCommand comando = new SqlCommand(sqlInserir, conexao);
+
+            comando.Parameters.Add(new SqlParameter("@Nome", cliente.Nome));
+            comando.Parameters.Add(new SqlParameter("@Email", cliente.Email));
+            comando.Parameters.Add(new SqlParameter("@CPF", cliente.CPF));
+            comando.Parameters.Add(new SqlParameter("@Telefone", cliente.Telefone));
+
+            comando.ExecuteNonQuery();
+            conexao.Close();
         }
 
-        public void Alterar()
+        public void Alterar(Cliente cliente)
         {
-            ClienteRepositorio clienteRepositorio = new ClienteRepositorio();
-
             string sqlInserir = "UPDATE Cliente SET Nome=@Nome, Email=@Email, CPF=@CPF, Telefone=@Telefone WHERE Id=@Id";
-            clienteRepositorio.Alterar(sqlInserir);
+           
+            conexao.Open();
+            SqlCommand comando = new SqlCommand(sqlInserir, conexao);
+
+            comando.Parameters.Add(new SqlParameter("@Id", cliente.Id));
+            comando.Parameters.Add(new SqlParameter("@Nome", cliente.Nome));
+            comando.Parameters.Add(new SqlParameter("@Email", cliente.Email));
+            comando.Parameters.Add(new SqlParameter("@CPF", cliente.CPF));
+            comando.Parameters.Add(new SqlParameter("@Telefone", cliente.Telefone));
+
+            comando.ExecuteNonQuery();
+            conexao.Close();
         }
 
-        public void Deletar( )
+        public void Deletar(Cliente cliente)
         {
-            ClienteRepositorio clienteRepositorio = new ClienteRepositorio();
-
             string sqlInserir = "DELETE FROM Cliente WHERE Id =@Id";
-            clienteRepositorio.Deletar(sqlInserir);
-        }
+            conexao.Open();
+            SqlCommand comando = new SqlCommand(sqlInserir, conexao);
 
+            comando.Parameters.Add(new SqlParameter("@Id", cliente.Id));
+
+            comando.ExecuteNonQuery();
+            conexao.Close();
+        }
     }
 }
