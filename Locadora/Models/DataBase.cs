@@ -1,5 +1,4 @@
 ﻿using System.Data.SqlClient;
-using System.Data;
 
 namespace Locadora.Models
 {

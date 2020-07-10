@@ -48,10 +48,11 @@
   <ItemGroup>
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\DataBase.cs" />
-    <Compile Include="Views\Cliente\FormCliente.cs">
+    <Compile Include="Models\Veiculo.cs" />
+    <Compile Include="Views\FormCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Cliente\FormCliente.Designer.cs">
+    <Compile Include="Views\FormCliente.Designer.cs">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="LocadoraDataSet.Designer.cs">
@@ -61,7 +62,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Views\Cliente\FormCliente.resx">
+    <Compile Include="Views\FormVeiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormVeiculo.Designer.cs">
+      <DependentUpon>FormVeiculo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\FormCliente.resx">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -73,6 +80,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\FormVeiculo.resx">
+      <DependentUpon>FormVeiculo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="LocadoraDataSet.xsc">
       <DependentUpon>LocadoraDataSet.xsd</DependentUpon>
     </None>
@@ -97,9 +107,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Locacao\" />
-    <Folder Include="Views\Veiculo\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
