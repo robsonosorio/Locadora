@@ -41,7 +41,7 @@ namespace Locadora.Views.Cliente
 
         private void Salvar_Click(object sender, EventArgs e)
         {
-            Veiculo veiculo = new Veiculo();
+            Carro veiculo = new Carro();
             try
             {
                 veiculo.Marca = marcaTextBox.Text;
@@ -64,10 +64,10 @@ namespace Locadora.Views.Cliente
 
         private void Alterar_Click(object sender, EventArgs e)
         {
-            Veiculo veiculo = new Veiculo();
+            Carro veiculo = new Carro();
             try
             {
-                veiculo.Id = int.Parse(veiculoDataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                veiculo.CarroId = int.Parse(veiculoDataGridView.SelectedRows[0].Cells[0].Value.ToString());
                 veiculo.Marca = marcaTextBox.Text;
                 veiculo.Modelo = modeloTextBox.Text;
                 veiculo.Cor = corTextBox.Text;
@@ -88,10 +88,10 @@ namespace Locadora.Views.Cliente
 
         private void Deletar_Click(object sender, EventArgs e)
         {
-            Veiculo veiculo = new Veiculo();
+            Carro veiculo = new Carro();
             try
             {
-                veiculo.Id = int.Parse(veiculoDataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                veiculo.CarroId = int.Parse(veiculoDataGridView.SelectedRows[0].Cells[0].Value.ToString());
 
                 veiculo.Deletar(veiculo);
             }

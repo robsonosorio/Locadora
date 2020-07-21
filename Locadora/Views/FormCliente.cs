@@ -1,6 +1,8 @@
 ﻿using Locadora.Models;
 using System;
 using System.Data.SqlClient;
+using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace Locadora
@@ -32,6 +34,7 @@ namespace Locadora
         {
             try
             {
+                Limpa_TextBox();
                 this.clienteTableAdapter.Fill(this.locadoraDataSet.Cliente);
             }
             catch (Exception ex)
@@ -42,19 +45,38 @@ namespace Locadora
 
         private void Salvar_Click(object sender, EventArgs e)
         {
+            Cliente cliente = new Cliente();
             try
             {
-                Cliente cliente = new Cliente();
-                cliente.Nome = nomeTextBox.Text;
-                cliente.Email = emailTextBox.Text;
-                cliente.CPF = cPFTextBox.Text;
-                cliente.Telefone = telefoneTextBox.Text;
+                if (string.IsNullOrWhiteSpace(nomeTextBox.Text))
+                {
+                    MessageBox.Show("O campo Nome está em branco!");
+                }
+                else if (string.IsNullOrWhiteSpace(emailTextBox.Text))
+                {
+                    MessageBox.Show("O campo Email está em branco!");
+                }
+                else if (string.IsNullOrWhiteSpace(cPFTextBox.Text))
+                {
+                    MessageBox.Show("O campo CPF está em branco!");
+                }
+                else if (string.IsNullOrWhiteSpace(telefoneTextBox.Text))
+                {
+                    MessageBox.Show("O campo Telefone está em branco!");
+                }
+                else
+                {
+                    cliente.Nome = nomeTextBox.Text;
+                    cliente.Email = emailTextBox.Text;
+                    cliente.CPF = cPFTextBox.Text;
+                    cliente.Telefone = telefoneTextBox.Text;
 
-                cliente.Salvar(cliente);    
+                    cliente.Salvar(cliente);
+                }
             }
-            catch (SqlException ex)
+            catch (SqlException  ex)
             {
-                MessageBox.Show("Ocorre erro: " + ex.Message);
+                MessageBox.Show("CPF já cadastrado!" + ex.Message);
             }
             finally
             {
@@ -68,13 +90,34 @@ namespace Locadora
             Cliente cliente = new Cliente();
             try
             {
-                cliente.Id = int.Parse(clienteDataGridView.SelectedRows[0].Cells[0].Value.ToString());
-                cliente.Nome = nomeTextBox.Text;
-                cliente.Email = emailTextBox.Text;
-                cliente.CPF = cPFTextBox.Text;
-                cliente.Telefone = telefoneTextBox.Text;
 
-                cliente.Alterar(cliente);
+
+                if (string.IsNullOrWhiteSpace(nomeTextBox.Text))
+                {
+                    MessageBox.Show("O campo Nome está em branco!");
+                }
+                else if (string.IsNullOrWhiteSpace(emailTextBox.Text))
+                {
+                    MessageBox.Show("O campo Email está em branco!");
+                }
+                else if (string.IsNullOrWhiteSpace(cPFTextBox.Text))
+                {
+                    MessageBox.Show("O campo CPF está em branco!");
+                }
+                else if (string.IsNullOrWhiteSpace(telefoneTextBox.Text))
+                {
+                    MessageBox.Show("O campo Telefone está em branco!");
+                }
+                else
+                {
+                    cliente.ClienteId = int.Parse(clienteDataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                    cliente.Nome = nomeTextBox.Text;
+                    cliente.Email = emailTextBox.Text;
+                    cliente.CPF = cPFTextBox.Text;
+                    cliente.Telefone = telefoneTextBox.Text;
+
+                    cliente.Alterar(cliente);
+                }
             }
             catch (SqlException ex)
             {
@@ -92,9 +135,9 @@ namespace Locadora
             Cliente cliente = new Cliente();
             try
             {
-                cliente.Id = int.Parse(clienteDataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                cliente.ClienteId = int.Parse(clienteDataGridView.SelectedRows[0].Cells[0].Value.ToString());
 
-                cliente.Deletar(cliente);;
+                cliente.Deletar(cliente); ;
             }
             catch (SqlException ex)
             {
@@ -115,5 +158,9 @@ namespace Locadora
             telefoneTextBox.Text = "";
         }
 
+        private void RelatórioDeLocaçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

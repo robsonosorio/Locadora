@@ -5,7 +5,7 @@ namespace Locadora.Models
 {
     public class Cliente : DataBase
     {
-        public int Id { get; set; }
+        public int ClienteId { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
         public string CPF { get; set; }
@@ -38,7 +38,7 @@ namespace Locadora.Models
             conexao.Open();
             SqlCommand comando = new SqlCommand(sqlInserir, conexao);
 
-            comando.Parameters.Add(new SqlParameter("@Id", cliente.Id));
+            comando.Parameters.Add(new SqlParameter("@Id", cliente.ClienteId));
             comando.Parameters.Add(new SqlParameter("@Nome", cliente.Nome));
             comando.Parameters.Add(new SqlParameter("@Email", cliente.Email));
             comando.Parameters.Add(new SqlParameter("@CPF", cliente.CPF));
@@ -54,7 +54,7 @@ namespace Locadora.Models
             conexao.Open();
             SqlCommand comando = new SqlCommand(sqlInserir, conexao);
 
-            comando.Parameters.Add(new SqlParameter("@Id", cliente.Id));
+            comando.Parameters.Add(new SqlParameter("@Id", cliente.ClienteId));
 
             comando.ExecuteNonQuery();
             conexao.Close();
