@@ -44,7 +44,7 @@ namespace Locadora.Views.Cliente
             Carro veiculo = new Carro();
             try
             {
-                veiculo.Marca = marcaTextBox.Text;
+                //veiculo.MarcaId = marcaTextBox.Text;
                 veiculo.Modelo = modeloTextBox.Text;
                 veiculo.Cor = corTextBox.Text;
                 veiculo.ValorDiaria = double.Parse(valorDiariaTextBox.Text);
@@ -68,7 +68,7 @@ namespace Locadora.Views.Cliente
             try
             {
                 veiculo.CarroId = int.Parse(veiculoDataGridView.SelectedRows[0].Cells[0].Value.ToString());
-                veiculo.Marca = marcaTextBox.Text;
+                //veiculo.MarcaId = marcaTextBox.Text;
                 veiculo.Modelo = modeloTextBox.Text;
                 veiculo.Cor = corTextBox.Text;
                 veiculo.ValorDiaria = double.Parse(valorDiariaTextBox.Text);

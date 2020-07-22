@@ -46,9 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Locacao.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\DataBase.cs" />
-    <Compile Include="Models\Veiculo.cs" />
+    <Compile Include="Models\Carro.cs" />
+    <Compile Include="Models\MarcaCarro.cs" />
+    <Compile Include="Views\FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormPrincipal.Designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormRelatorio.Designer.cs">
+      <DependentUpon>FormRelatorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +82,12 @@
     <Compile Include="Views\FormVeiculo.Designer.cs">
       <DependentUpon>FormVeiculo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormRelatorio.resx">
+      <DependentUpon>FormRelatorio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FormCliente.resx">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </EmbeddedResource>

@@ -54,10 +54,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.principalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.veiculoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastrarMarcaDeCarroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastrarModeloDeCarroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.veiculoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarModeloDeCarroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatórioDeLocaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             telefoneLabel = new System.Windows.Forms.Label();
@@ -295,32 +294,25 @@
             this.clienteToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.clienteToolStripMenuItem.Text = "Cliente";
             // 
+            // cadastrarClienteToolStripMenuItem
+            // 
+            this.cadastrarClienteToolStripMenuItem.Name = "cadastrarClienteToolStripMenuItem";
+            this.cadastrarClienteToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.cadastrarClienteToolStripMenuItem.Text = "Cadastrar cliente";
+            // 
             // veiculoToolStripMenuItem
             // 
             this.veiculoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastrarMarcaDeCarroToolStripMenuItem,
             this.cadastrarModeloDeCarroToolStripMenuItem});
             this.veiculoToolStripMenuItem.Name = "veiculoToolStripMenuItem";
             this.veiculoToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.veiculoToolStripMenuItem.Text = "Veiculo";
-            // 
-            // cadastrarMarcaDeCarroToolStripMenuItem
-            // 
-            this.cadastrarMarcaDeCarroToolStripMenuItem.Name = "cadastrarMarcaDeCarroToolStripMenuItem";
-            this.cadastrarMarcaDeCarroToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.cadastrarMarcaDeCarroToolStripMenuItem.Text = "Cadastrar marca de carro";
             // 
             // cadastrarModeloDeCarroToolStripMenuItem
             // 
             this.cadastrarModeloDeCarroToolStripMenuItem.Name = "cadastrarModeloDeCarroToolStripMenuItem";
             this.cadastrarModeloDeCarroToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.cadastrarModeloDeCarroToolStripMenuItem.Text = "Cadastrar modelo de carro";
-            // 
-            // cadastrarClienteToolStripMenuItem
-            // 
-            this.cadastrarClienteToolStripMenuItem.Name = "cadastrarClienteToolStripMenuItem";
-            this.cadastrarClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cadastrarClienteToolStripMenuItem.Text = "Cadastrar cliente";
             // 
             // relatóriosToolStripMenuItem
             // 
@@ -395,7 +387,6 @@
         private System.Windows.Forms.ToolStripMenuItem principalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem veiculoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadastrarMarcaDeCarroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarModeloDeCarroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;

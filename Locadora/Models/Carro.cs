@@ -6,7 +6,7 @@ namespace Locadora.Models
     class Carro : DataBase
     {
         public int CarroId { get; set; }
-        public string Marca { get; set; }
+        public MarcaCarro MarcaId { get; set; }
         public string Modelo { get; set; }
         public string Cor { get; set; }
         public double ValorDiaria { get; set; }
@@ -18,7 +18,7 @@ namespace Locadora.Models
             conexao.Open();
             SqlCommand comando = new SqlCommand(sqlInserir, conexao);
 
-            comando.Parameters.Add(new SqlParameter("@Marca", carro.Marca));
+            comando.Parameters.Add(new SqlParameter("@Marca", carro.MarcaId));
             comando.Parameters.Add(new SqlParameter("@Modelo", carro.Modelo));
             comando.Parameters.Add(new SqlParameter("@Cor", carro.Cor));
             comando.Parameters.Add(new SqlParameter("@ValorDiaria", carro.ValorDiaria));
@@ -36,7 +36,7 @@ namespace Locadora.Models
             SqlCommand comando = new SqlCommand(sqlInserir, conexao);
 
             comando.Parameters.Add(new SqlParameter("@Id", carro.CarroId));
-            comando.Parameters.Add(new SqlParameter("@Marca", carro.Marca));
+            comando.Parameters.Add(new SqlParameter("@Marca", carro.MarcaId));
             comando.Parameters.Add(new SqlParameter("@Modelo", carro.Modelo));
             comando.Parameters.Add(new SqlParameter("@Cor", carro.Cor));
             comando.Parameters.Add(new SqlParameter("@ValorDiaria", carro.ValorDiaria));

@@ -8,5 +8,7 @@ namespace Locadora.Models
 {
     class MarcaCarro
     {
+        public int MarcaId { get; set; }
+        public string Marca { get; set; }
     }
 }

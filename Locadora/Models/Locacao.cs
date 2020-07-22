@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Locadora.Models
 {
-    class Class1
+    class Locacao
     {
+        public int LocacaoId { get; set; }
+        public Cliente ClienteId { get; set; }
+        public Carro CarroId { get; set; }
+        public DateTime DataRetirada { get; set; }
+        public DateTime Devolucao { get; set; }
     }
 }
