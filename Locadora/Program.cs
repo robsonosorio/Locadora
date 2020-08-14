@@ -1,5 +1,4 @@
 ﻿using Locadora.Views;
-using Locadora.Views.Cliente;
 using System;
 using System.Collections.Generic;
 using System.Linq;

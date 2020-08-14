@@ -18,8 +18,8 @@ namespace Locadora.Models
         public void Salvar(Cliente cliente)
         {
             string sqlInserir = "INSERT INTO Cliente(Nome, Email, CPF, Telefone) VALUES (@Nome, @Email, @CPF, @Telefone)";
-          
-            conexao.Open();
+
+            ConexaoBanco().Open();
             SqlCommand comando = new SqlCommand(sqlInserir, conexao);
 
             comando.Parameters.Add(new SqlParameter("@Nome", cliente.Nome));
@@ -28,36 +28,36 @@ namespace Locadora.Models
             comando.Parameters.Add(new SqlParameter("@Telefone", cliente.Telefone));
 
             comando.ExecuteNonQuery();
-            conexao.Close();
+            ConexaoBanco().Close();
         }
 
         public void Alterar(Cliente cliente)
         {
-            string sqlInserir = "UPDATE Cliente SET Nome=@Nome, Email=@Email, CPF=@CPF, Telefone=@Telefone WHERE Id=@Id";
-           
-            conexao.Open();
+            string sqlInserir = "UPDATE Cliente SET Nome=@Nome, Email=@Email, CPF=@CPF, Telefone=@Telefone WHERE ClienteId=@ClienteId";
+
+            ConexaoBanco().Open();
             SqlCommand comando = new SqlCommand(sqlInserir, conexao);
 
-            comando.Parameters.Add(new SqlParameter("@Id", cliente.ClienteId));
+            comando.Parameters.Add(new SqlParameter("@ClienteId", cliente.ClienteId));
             comando.Parameters.Add(new SqlParameter("@Nome", cliente.Nome));
             comando.Parameters.Add(new SqlParameter("@Email", cliente.Email));
             comando.Parameters.Add(new SqlParameter("@CPF", cliente.CPF));
             comando.Parameters.Add(new SqlParameter("@Telefone", cliente.Telefone));
 
             comando.ExecuteNonQuery();
-            conexao.Close();
+            ConexaoBanco().Close();
         }
 
         public void Deletar(Cliente cliente)
         {
-            string sqlInserir = "DELETE FROM Cliente WHERE Id =@Id";
-            conexao.Open();
+            string sqlInserir = "DELETE FROM Cliente WHERE ClienteId =@ClienteId";
+            ConexaoBanco().Open();
             SqlCommand comando = new SqlCommand(sqlInserir, conexao);
 
-            comando.Parameters.Add(new SqlParameter("@Id", cliente.ClienteId));
+            comando.Parameters.Add(new SqlParameter("@ClienteId", cliente.ClienteId));
 
             comando.ExecuteNonQuery();
-            conexao.Close();
+            ConexaoBanco().Close();
         }
     }
 }

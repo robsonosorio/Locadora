@@ -1,4 +1,4 @@
-﻿namespace Locadora.Views.Cliente
+﻿namespace Locadora.Views
 {
     partial class FormVeiculo
     {
@@ -33,33 +33,32 @@
             System.Windows.Forms.Label cPFLabel;
             System.Windows.Forms.Label emailLabel;
             System.Windows.Forms.Label nomeLabel;
+            System.Windows.Forms.Label label1;
             this.valorDiariaTextBox = new System.Windows.Forms.TextBox();
             this.corTextBox = new System.Windows.Forms.TextBox();
             this.modeloTextBox = new System.Windows.Forms.TextBox();
-            this.marcaTextBox = new System.Windows.Forms.TextBox();
-            this.veiculoDataGridView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.marcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modeloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.corDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorDiariaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.veiculoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.locadoraDataSet = new Locadora.LocadoraDataSet();
+            this.carroDataGridView = new System.Windows.Forms.DataGridView();
             this.CadastroVeiculo = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.veiculoTableAdapter = new Locadora.LocadoraDataSetTableAdapters.VeiculoTableAdapter();
-            this.tableAdapterManager = new Locadora.LocadoraDataSetTableAdapters.TableAdapterManager();
+            this.deletarButton = new System.Windows.Forms.Button();
+            this.alterarButton = new System.Windows.Forms.Button();
+            this.salvarButton = new System.Windows.Forms.Button();
+            this.atualizarButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.MarcaComboBox = new System.Windows.Forms.ComboBox();
+            this.marcaCarroBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.locadoraDataSet1 = new Locadora.LocadoraDataSet();
+            this.marcaCarroTableAdapter = new Locadora.LocadoraDataSet1TableAdapters.MarcaCarroTableAdapter();
+            this.tableAdapterManager = new Locadora.LocadoraDataSet1TableAdapters.TableAdapterManager();
+            this.cadastraMarcaTextBox = new System.Windows.Forms.TextBox();
+            this.salvarMarcaButton = new System.Windows.Forms.Button();
             telefoneLabel = new System.Windows.Forms.Label();
             cPFLabel = new System.Windows.Forms.Label();
             emailLabel = new System.Windows.Forms.Label();
             nomeLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.veiculoDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.veiculoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.locadoraDataSet)).BeginInit();
+            label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.carroDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcaCarroBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.locadoraDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // telefoneLabel
@@ -102,99 +101,49 @@
             nomeLabel.TabIndex = 47;
             nomeLabel.Text = "Marca";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(530, 21);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(96, 15);
+            label1.TabIndex = 58;
+            label1.Text = "Cadastrar Marca";
+            // 
             // valorDiariaTextBox
             // 
             this.valorDiariaTextBox.Location = new System.Drawing.Point(300, 88);
             this.valorDiariaTextBox.Name = "valorDiariaTextBox";
             this.valorDiariaTextBox.Size = new System.Drawing.Size(125, 20);
-            this.valorDiariaTextBox.TabIndex = 55;
+            this.valorDiariaTextBox.TabIndex = 4;
             // 
             // corTextBox
             // 
             this.corTextBox.Location = new System.Drawing.Point(241, 52);
             this.corTextBox.Name = "corTextBox";
             this.corTextBox.Size = new System.Drawing.Size(125, 20);
-            this.corTextBox.TabIndex = 54;
+            this.corTextBox.TabIndex = 3;
             // 
             // modeloTextBox
             // 
             this.modeloTextBox.Location = new System.Drawing.Point(69, 88);
             this.modeloTextBox.Name = "modeloTextBox";
             this.modeloTextBox.Size = new System.Drawing.Size(118, 20);
-            this.modeloTextBox.TabIndex = 52;
+            this.modeloTextBox.TabIndex = 2;
             // 
-            // marcaTextBox
+            // carroDataGridView
             // 
-            this.marcaTextBox.Location = new System.Drawing.Point(69, 54);
-            this.marcaTextBox.Name = "marcaTextBox";
-            this.marcaTextBox.Size = new System.Drawing.Size(118, 20);
-            this.marcaTextBox.TabIndex = 50;
-            // 
-            // veiculoDataGridView
-            // 
-            this.veiculoDataGridView.AllowUserToAddRows = false;
-            this.veiculoDataGridView.AllowUserToDeleteRows = false;
-            this.veiculoDataGridView.AutoGenerateColumns = false;
-            this.veiculoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.veiculoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.marcaDataGridViewTextBoxColumn,
-            this.modeloDataGridViewTextBoxColumn,
-            this.corDataGridViewTextBoxColumn,
-            this.valorDiariaDataGridViewTextBoxColumn});
-            this.veiculoDataGridView.DataSource = this.veiculoBindingSource;
-            this.veiculoDataGridView.Location = new System.Drawing.Point(17, 131);
-            this.veiculoDataGridView.Name = "veiculoDataGridView";
-            this.veiculoDataGridView.ReadOnly = true;
-            this.veiculoDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.veiculoDataGridView.Size = new System.Drawing.Size(541, 261);
-            this.veiculoDataGridView.TabIndex = 48;
-            this.veiculoDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VeiculoDataGridView_CellContentClick);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // marcaDataGridViewTextBoxColumn
-            // 
-            this.marcaDataGridViewTextBoxColumn.DataPropertyName = "Marca";
-            this.marcaDataGridViewTextBoxColumn.HeaderText = "Marca";
-            this.marcaDataGridViewTextBoxColumn.Name = "marcaDataGridViewTextBoxColumn";
-            this.marcaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // modeloDataGridViewTextBoxColumn
-            // 
-            this.modeloDataGridViewTextBoxColumn.DataPropertyName = "Modelo";
-            this.modeloDataGridViewTextBoxColumn.HeaderText = "Modelo";
-            this.modeloDataGridViewTextBoxColumn.Name = "modeloDataGridViewTextBoxColumn";
-            this.modeloDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // corDataGridViewTextBoxColumn
-            // 
-            this.corDataGridViewTextBoxColumn.DataPropertyName = "Cor";
-            this.corDataGridViewTextBoxColumn.HeaderText = "Cor";
-            this.corDataGridViewTextBoxColumn.Name = "corDataGridViewTextBoxColumn";
-            this.corDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // valorDiariaDataGridViewTextBoxColumn
-            // 
-            this.valorDiariaDataGridViewTextBoxColumn.DataPropertyName = "ValorDiaria";
-            this.valorDiariaDataGridViewTextBoxColumn.HeaderText = "ValorDiaria";
-            this.valorDiariaDataGridViewTextBoxColumn.Name = "valorDiariaDataGridViewTextBoxColumn";
-            this.valorDiariaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // veiculoBindingSource
-            // 
-            this.veiculoBindingSource.DataMember = "Veiculo";
-            this.veiculoBindingSource.DataSource = this.locadoraDataSet;
-            // 
-            // locadoraDataSet
-            // 
-            this.locadoraDataSet.DataSetName = "LocadoraDataSet";
-            this.locadoraDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.carroDataGridView.AllowUserToAddRows = false;
+            this.carroDataGridView.AllowUserToDeleteRows = false;
+            this.carroDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.carroDataGridView.Location = new System.Drawing.Point(17, 131);
+            this.carroDataGridView.Name = "carroDataGridView";
+            this.carroDataGridView.ReadOnly = true;
+            this.carroDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.carroDataGridView.Size = new System.Drawing.Size(541, 261);
+            this.carroDataGridView.TabIndex = 9;
+            this.carroDataGridView.SelectionChanged += new System.EventHandler(this.CarroDataGridView_SelectionChanged);
             // 
             // CadastroVeiculo
             // 
@@ -203,56 +152,45 @@
             this.CadastroVeiculo.Size = new System.Drawing.Size(100, 23);
             this.CadastroVeiculo.TabIndex = 56;
             // 
-            // button4
+            // deletarButton
             // 
-            this.button4.Location = new System.Drawing.Point(575, 342);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(122, 49);
-            this.button4.TabIndex = 45;
-            this.button4.Text = "Deletar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Deletar_Click);
+            this.deletarButton.Location = new System.Drawing.Point(575, 342);
+            this.deletarButton.Name = "deletarButton";
+            this.deletarButton.Size = new System.Drawing.Size(122, 49);
+            this.deletarButton.TabIndex = 8;
+            this.deletarButton.Text = "Deletar";
+            this.deletarButton.UseVisualStyleBackColor = true;
+            this.deletarButton.Click += new System.EventHandler(this.DeletarButton_Click);
             // 
-            // button3
+            // alterarButton
             // 
-            this.button3.Location = new System.Drawing.Point(575, 272);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(122, 49);
-            this.button3.TabIndex = 44;
-            this.button3.Text = "Alterar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Alterar_Click);
+            this.alterarButton.Location = new System.Drawing.Point(575, 272);
+            this.alterarButton.Name = "alterarButton";
+            this.alterarButton.Size = new System.Drawing.Size(122, 49);
+            this.alterarButton.TabIndex = 7;
+            this.alterarButton.Text = "Alterar";
+            this.alterarButton.UseVisualStyleBackColor = true;
+            this.alterarButton.Click += new System.EventHandler(this.AlterarButton_Click);
             // 
-            // button2
+            // salvarButton
             // 
-            this.button2.Location = new System.Drawing.Point(575, 201);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 49);
-            this.button2.TabIndex = 43;
-            this.button2.Text = "Salvar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Salvar_Click);
+            this.salvarButton.Location = new System.Drawing.Point(575, 201);
+            this.salvarButton.Name = "salvarButton";
+            this.salvarButton.Size = new System.Drawing.Size(122, 49);
+            this.salvarButton.TabIndex = 6;
+            this.salvarButton.Text = "Salvar";
+            this.salvarButton.UseVisualStyleBackColor = true;
+            this.salvarButton.Click += new System.EventHandler(this.SalvarButton_Click);
             // 
-            // button1
+            // atualizarButton
             // 
-            this.button1.Location = new System.Drawing.Point(575, 130);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 49);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "Atualizar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Atualizar_Click);
-            // 
-            // veiculoTableAdapter
-            // 
-            this.veiculoTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ClienteTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Locadora.LocadoraDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.VeiculoTableAdapter = this.veiculoTableAdapter;
+            this.atualizarButton.Location = new System.Drawing.Point(575, 130);
+            this.atualizarButton.Name = "atualizarButton";
+            this.atualizarButton.Size = new System.Drawing.Size(122, 49);
+            this.atualizarButton.TabIndex = 5;
+            this.atualizarButton.Text = "Atualizar";
+            this.atualizarButton.UseVisualStyleBackColor = true;
+            this.atualizarButton.Click += new System.EventHandler(this.AtualizarButton_Click);
             // 
             // label2
             // 
@@ -264,11 +202,65 @@
             this.label2.TabIndex = 57;
             this.label2.Text = "Cadastro de veiculos";
             // 
+            // MarcaComboBox
+            // 
+            this.MarcaComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.marcaCarroBindingSource, "Marca", true));
+            this.MarcaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MarcaComboBox.FormattingEnabled = true;
+            this.MarcaComboBox.Location = new System.Drawing.Point(69, 51);
+            this.MarcaComboBox.Name = "MarcaComboBox";
+            this.MarcaComboBox.Size = new System.Drawing.Size(118, 21);
+            this.MarcaComboBox.TabIndex = 1;
+            // 
+            // marcaCarroBindingSource
+            // 
+            this.marcaCarroBindingSource.DataMember = "MarcaCarro";
+            this.marcaCarroBindingSource.DataSource = this.locadoraDataSet1;
+            // 
+            // locadoraDataSet1
+            // 
+            this.locadoraDataSet1.DataSetName = "LocadoraDataSet1";
+            this.locadoraDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // marcaCarroTableAdapter
+            // 
+            this.marcaCarroTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CarroTableAdapter = null;
+            this.tableAdapterManager.ClienteTableAdapter = null;
+            this.tableAdapterManager.LocacaoTableAdapter = null;
+            this.tableAdapterManager.MarcaCarroTableAdapter = this.marcaCarroTableAdapter;
+            this.tableAdapterManager.UpdateOrder = Locadora.LocadoraDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // cadastraMarcaTextBox
+            // 
+            this.cadastraMarcaTextBox.Location = new System.Drawing.Point(533, 42);
+            this.cadastraMarcaTextBox.Name = "cadastraMarcaTextBox";
+            this.cadastraMarcaTextBox.Size = new System.Drawing.Size(93, 20);
+            this.cadastraMarcaTextBox.TabIndex = 59;
+            // 
+            // salvarMarcaButton
+            // 
+            this.salvarMarcaButton.Location = new System.Drawing.Point(632, 39);
+            this.salvarMarcaButton.Name = "salvarMarcaButton";
+            this.salvarMarcaButton.Size = new System.Drawing.Size(40, 23);
+            this.salvarMarcaButton.TabIndex = 60;
+            this.salvarMarcaButton.Text = "ADD";
+            this.salvarMarcaButton.UseVisualStyleBackColor = true;
+            this.salvarMarcaButton.Click += new System.EventHandler(this.SalvarMarcaButton_Click);
+            // 
             // FormVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 402);
+            this.Controls.Add(this.salvarMarcaButton);
+            this.Controls.Add(this.cadastraMarcaTextBox);
+            this.Controls.Add(label1);
+            this.Controls.Add(this.MarcaComboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(telefoneLabel);
             this.Controls.Add(this.valorDiariaTextBox);
@@ -277,19 +269,18 @@
             this.Controls.Add(emailLabel);
             this.Controls.Add(this.modeloTextBox);
             this.Controls.Add(nomeLabel);
-            this.Controls.Add(this.marcaTextBox);
-            this.Controls.Add(this.veiculoDataGridView);
+            this.Controls.Add(this.carroDataGridView);
             this.Controls.Add(this.CadastroVeiculo);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.deletarButton);
+            this.Controls.Add(this.alterarButton);
+            this.Controls.Add(this.salvarButton);
+            this.Controls.Add(this.atualizarButton);
             this.Name = "FormVeiculo";
             this.Text = " ";
             this.Load += new System.EventHandler(this.FormVeiculo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.veiculoDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.veiculoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.locadoraDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carroDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.marcaCarroBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.locadoraDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,22 +291,19 @@
         private System.Windows.Forms.TextBox valorDiariaTextBox;
         private System.Windows.Forms.TextBox corTextBox;
         private System.Windows.Forms.TextBox modeloTextBox;
-        private System.Windows.Forms.TextBox marcaTextBox;
-        private System.Windows.Forms.DataGridView veiculoDataGridView;
+        private System.Windows.Forms.DataGridView carroDataGridView;
         private System.Windows.Forms.Label CadastroVeiculo;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private LocadoraDataSet locadoraDataSet;
-        private System.Windows.Forms.BindingSource veiculoBindingSource;
-        private LocadoraDataSetTableAdapters.VeiculoTableAdapter veiculoTableAdapter;
-        private LocadoraDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn marcaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modeloDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn corDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorDiariaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button deletarButton;
+        private System.Windows.Forms.Button alterarButton;
+        private System.Windows.Forms.Button salvarButton;
+        private System.Windows.Forms.Button atualizarButton;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox MarcaComboBox;
+        private LocadoraDataSet locadoraDataSet1;
+        private System.Windows.Forms.BindingSource marcaCarroBindingSource;
+        private LocadoraDataSet1TableAdapters.MarcaCarroTableAdapter marcaCarroTableAdapter;
+        private LocadoraDataSet1TableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.TextBox cadastraMarcaTextBox;
+        private System.Windows.Forms.Button salvarMarcaButton;
     }
 }

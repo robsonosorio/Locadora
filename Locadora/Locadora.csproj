@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LocadoraDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocadoraDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models\Locacao.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\DataBase.cs" />
@@ -68,11 +73,6 @@
     </Compile>
     <Compile Include="Views\FormCliente.Designer.cs">
       <DependentUpon>FormCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LocadoraDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LocadoraDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

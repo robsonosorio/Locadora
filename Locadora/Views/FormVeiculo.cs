@@ -1,37 +1,57 @@
 ﻿using Locadora.Models;
 using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace Locadora.Views.Cliente
+namespace Locadora.Views
 {
     public partial class FormVeiculo : Form
     {
+        DataBase db = new DataBase();
+
         public FormVeiculo()
         {
             InitializeComponent();
         }
+
+        private void Clear_TextBox()
+        {
+            MarcaComboBox.Text = "";
+            modeloTextBox.Text = "";
+            corTextBox.Text = "";
+            valorDiariaTextBox.Text = "";
+        }
+
         private void FormVeiculo_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'locadoraDataSet.Veiculo' table. You can move, or remove it, as needed.
-            this.veiculoTableAdapter.Fill(this.locadoraDataSet.Veiculo);
+            string sqlDataGrid = "SELECT cr.CarroId, mc.Marca, cr.Modelo, cr.Cor, cr.ValorDiaria " +
+                 "FROM Carro AS cr " +
+                 "INNER JOIN MarcaCarro AS mc ON cr.MarcaId = mc.MarcaId";
+            carroDataGridView.DataSource = db.Consulta(sqlDataGrid);
 
+            string sqlMarca = "SELECT MarcaId, Marca FROM MarcaCarro ORDER BY Marca";
+            MarcaComboBox.DataSource = db.Consulta(sqlMarca);
+            MarcaComboBox.DisplayMember = "Marca";
+            MarcaComboBox.ValueMember = "MarcaId";
+
+            Clear_TextBox();
         }
 
-        private void VeiculoDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void CarroDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            marcaTextBox.Text = veiculoDataGridView.CurrentRow.Cells[1].Value.ToString();
-            modeloTextBox.Text = veiculoDataGridView.CurrentRow.Cells[2].Value.ToString();
-            corTextBox.Text = veiculoDataGridView.CurrentRow.Cells[3].Value.ToString();
-            valorDiariaTextBox.Text = veiculoDataGridView.CurrentRow.Cells[4].Value.ToString();
+            MarcaComboBox.Text = carroDataGridView.CurrentRow.Cells[1].Value.ToString();
+            modeloTextBox.Text = carroDataGridView.CurrentRow.Cells[2].Value.ToString();
+            corTextBox.Text = carroDataGridView.CurrentRow.Cells[3].Value.ToString();
+            valorDiariaTextBox.Text = carroDataGridView.CurrentRow.Cells[4].Value.ToString();
         }
 
-
-        private void Atualizar_Click(object sender, EventArgs e)
+        private void AtualizarButton_Click(object sender, EventArgs e)
         {
             try
             {
-                this.veiculoTableAdapter.Fill(this.locadoraDataSet.Veiculo);
+                FormVeiculo_Load(sender, e);
+                Clear_TextBox();
             }
             catch (Exception ex)
             {
@@ -39,79 +59,91 @@ namespace Locadora.Views.Cliente
             }
         }
 
-        private void Salvar_Click(object sender, EventArgs e)
+        private void SalvarButton_Click(object sender, EventArgs e)
         {
-            Carro veiculo = new Carro();
+            Carro carro = new Carro();
             try
             {
-                //veiculo.MarcaId = marcaTextBox.Text;
-                veiculo.Modelo = modeloTextBox.Text;
-                veiculo.Cor = corTextBox.Text;
-                veiculo.ValorDiaria = double.Parse(valorDiariaTextBox.Text);
+                carro.MarcaId = int.Parse(MarcaComboBox.SelectedValue.ToString());
+                carro.Modelo = modeloTextBox.Text;
+                carro.Cor = corTextBox.Text;
+                carro.ValorDiaria = double.Parse(valorDiariaTextBox.Text);
 
-                veiculo.Salvar(veiculo);
+                carro.Salvar(carro);
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Ocorre erro: " + ex.Message);
+                MessageBox.Show("Erro!" + ex.Message);
             }
             finally
             {
-                this.veiculoTableAdapter.Fill(this.locadoraDataSet.Veiculo);
-                Limpa_TextBox();
+                FormVeiculo_Load(sender, e);
+                Clear_TextBox();
             }
         }
 
-        private void Alterar_Click(object sender, EventArgs e)
+        private void AlterarButton_Click(object sender, EventArgs e)
         {
-            Carro veiculo = new Carro();
+            Carro carro = new Carro();
             try
             {
-                veiculo.CarroId = int.Parse(veiculoDataGridView.SelectedRows[0].Cells[0].Value.ToString());
-                //veiculo.MarcaId = marcaTextBox.Text;
-                veiculo.Modelo = modeloTextBox.Text;
-                veiculo.Cor = corTextBox.Text;
-                veiculo.ValorDiaria = double.Parse(valorDiariaTextBox.Text);
+                carro.CarroId = int.Parse(carroDataGridView.CurrentRow.Cells[0].Value.ToString());
+                carro.MarcaId = int.Parse(MarcaComboBox.SelectedValue.ToString());
+                carro.Modelo = modeloTextBox.Text;
+                carro.Cor = corTextBox.Text;
+                carro.ValorDiaria = double.Parse(valorDiariaTextBox.Text);
 
-                veiculo.Alterar(veiculo);
+                carro.Alterar(carro);
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Ocorre erro: " + ex.Message);
+                MessageBox.Show("Erro!" + ex.Message);
             }
             finally
             {
-                this.veiculoTableAdapter.Fill(this.locadoraDataSet.Veiculo);
-                Limpa_TextBox();
+                FormVeiculo_Load(sender, e);
+                Clear_TextBox();
             }
         }
 
-        private void Deletar_Click(object sender, EventArgs e)
+        private void DeletarButton_Click(object sender, EventArgs e)
         {
-            Carro veiculo = new Carro();
+            Carro carro = new Carro();
             try
             {
-                veiculo.CarroId = int.Parse(veiculoDataGridView.SelectedRows[0].Cells[0].Value.ToString());
-
-                veiculo.Deletar(veiculo);
+                carro.CarroId = int.Parse(carroDataGridView.CurrentRow.Cells[0].Value.ToString());
+  
+                carro.Deletar(carro);
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Ocorre erro: " + ex.Message);
+                MessageBox.Show("Erro!" + ex.Message);
             }
             finally
             {
-                this.veiculoTableAdapter.Fill(this.locadoraDataSet.Veiculo);
-                Limpa_TextBox();
+                FormVeiculo_Load(sender, e);
+                Clear_TextBox();
             }
         }
 
-        private void Limpa_TextBox()
+        private void SalvarMarcaButton_Click(object sender, EventArgs e)
         {
-            marcaTextBox.Text = "";
-            modeloTextBox.Text = "";
-            corTextBox.Text = "";
-            valorDiariaTextBox.Text = "";
+            MarcaCarro marca = new MarcaCarro();
+            try
+            {
+                marca.Marca = cadastraMarcaTextBox.Text;
+
+                marca.Salvar(marca);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Erro!" + ex.Message);
+            }
+            finally
+            {
+                FormVeiculo_Load(sender, e);
+                Clear_TextBox();
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Locadora.Models;
 using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography.X509Certificates;
@@ -9,17 +10,24 @@ namespace Locadora
 {
     public partial class FormCliente : Form
     {
+        DataBase db = new DataBase();
+
         public FormCliente()
         {
             InitializeComponent();
-
+        }
+        private void Clear_TextBox()
+        {
+            nomeTextBox.Text = "";
+            emailTextBox.Text = "";
+            cPFTextBox.Text = "";
+            telefoneTextBox.Text = "";
         }
 
         private void FormCliente_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'locadoraDataSet.Cliente' table. You can move, or remove it, as needed.
-            this.clienteTableAdapter.Fill(this.locadoraDataSet.Cliente);
-
+            string sqlDataGrid = "SELECT * FROM Cliente";
+            clienteDataGridView.DataSource = db.Consulta(sqlDataGrid);
         }
 
         private void ClienteDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -34,8 +42,8 @@ namespace Locadora
         {
             try
             {
-                Limpa_TextBox();
-                this.clienteTableAdapter.Fill(this.locadoraDataSet.Cliente);
+                FormCliente_Load(sender, e);
+                Clear_TextBox();  
             }
             catch (Exception ex)
             {
@@ -80,8 +88,8 @@ namespace Locadora
             }
             finally
             {
-                this.clienteTableAdapter.Fill(this.locadoraDataSet.Cliente);
-                Limpa_TextBox();
+                FormCliente_Load(sender, e);
+                Clear_TextBox();
             }
         }
 
@@ -90,8 +98,6 @@ namespace Locadora
             Cliente cliente = new Cliente();
             try
             {
-
-
                 if (string.IsNullOrWhiteSpace(nomeTextBox.Text))
                 {
                     MessageBox.Show("O campo Nome está em branco!");
@@ -125,8 +131,8 @@ namespace Locadora
             }
             finally
             {
-                this.clienteTableAdapter.Fill(this.locadoraDataSet.Cliente);
-                Limpa_TextBox();
+                FormCliente_Load(sender, e);
+                Clear_TextBox();
             }
         }
 
@@ -145,22 +151,9 @@ namespace Locadora
             }
             finally
             {
-                this.clienteTableAdapter.Fill(this.locadoraDataSet.Cliente);
-                Limpa_TextBox();
+                FormCliente_Load(sender, e);
+                Clear_TextBox();
             }
-        }
-
-        private void Limpa_TextBox()
-        {
-            nomeTextBox.Text = "";
-            emailTextBox.Text = "";
-            cPFTextBox.Text = "";
-            telefoneTextBox.Text = "";
-        }
-
-        private void RelatórioDeLocaçõesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
